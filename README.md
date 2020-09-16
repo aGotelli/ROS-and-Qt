@@ -353,8 +353,20 @@ At this point also the ROS1 workspace is done.
 
 Now the only thing remaining is to set up Qt. For that, download and follow the instruction at: https://ros-qtc-plugin.readthedocs.io/en/latest/
 
-Specifically, go to download for user and download the executable (for Ubuntu 18.04)
-Then just follow the wizard with default settings (which work just fine)
+Or just follow the steps reported here.
+
+##### 1 Install the Wizard
+
+To install the wizard click the link:
+    https://qtcreator-ros.datasys.swri.edu/downloads/installers/bionic/qtcreator-ros-bionic-latest-online-installer.run
+
+Which obviously it is going to be a virus, designed to steal your precious Facebook account.
+
+###### 2 Install the program
+
+Right click on the downloaded file, go to permission and allow to be executed as a program. Then just follow the Wizard, it works just fine.
+
+###### 3 Last steps
 
 At this point, it is sufficient to follow the videos for setting up everything. The video
 for setting up the environment for ROS1 are available in the following links:
@@ -372,4 +384,4 @@ My suggestion is to create a folder in your home called qt_wss (which stands for
 Inside this folder create another two called "catkin" and "colcon". Starting with catkin, create the src folder inside and then initialize the workspace with Qt as shown in the video. than close Qt, open the terminal in the root of this catkin workspace and, after have sourced the .bash file in ros/noetic, run a simple catkin_make. At this point the workspace is initialized and you can start using it(refer to the videos for creating a package, however, you can always git clone whatever you want in the src folder) .
 
 At this point the only thing remaining is to setup the colcon workspace. You just follow the
-same step as before but carebully selecting colcon and the right ros distribution.  
+same step as before but carefully selecting colcon and the right ros distribution.  
