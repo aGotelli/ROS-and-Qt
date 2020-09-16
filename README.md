@@ -207,7 +207,7 @@ At this point the workspace contains a single empty directory src:
 
 1 directory, 0 files
 
-###### 6 Add some sources¶
+###### 6 Add some sources
 
 Let’s clone the examples repository (opening a new terminal into the src directory of the workspace):
 
@@ -309,15 +309,15 @@ Again, in the case there are some packages not up to date, run: sudo apt upgrade
 
 Desktop-Full Install: (Recommended) : Everything in Desktop plus 2D/3D simulators and 2D/3D perception packages
 
-        sudo apt install ros-noetic-desktop-full
+    sudo apt install ros-noetic-desktop-full
 
 ###### 3 Environment setup
 
 You must source this script in every bash terminal you use ROS in.
 
-source /opt/ros/noetic/setup.bash
+    source /opt/ros/noetic/setup.bash
 
-# <a name="S-ICATKIN"></a>Installing Catkin 
+# <a name="S-ICATKIN"></a>Installing Catkin
 
 Once ROS Noetic is installed it is time to install Catkin. This last one has the same function of Colcon, so a quick installation is presented without too many explanations. The following was taken from: https://catkin-tools.readthedocs.io/en/latest/installing.html
 
@@ -337,7 +337,7 @@ Then there is the need of solving some dependencies first. So run the following:
     pip3 install osrf-pycommon
 
 
-# <a name="S-ICATKINWS"></a>Initializing Catlin workspace 
+# <a name="S-ICATKINWS"></a>Initializing Catlin workspace
 
 The procedure is taken from the website: http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment
 
