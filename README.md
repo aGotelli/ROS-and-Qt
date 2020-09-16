@@ -323,6 +323,7 @@ Once you have added that repository, run these commands to install catkin_tools:
     sudo apt-get install python3-catkin-tools
 
 Then there is the need of solving some dependencies first. So run the following:
+
     sudo apt install python3-catkin-lint python3-pip
     pip3 install osrf-pycommon
 
