@@ -21,7 +21,15 @@ hours figuring out the right tutorial to follow. It mostly comes out of experien
 * [Installing Colcon](#S-Col)
 * [Initializing Colcon workspace](#S-WSR2)
 * [Installing ROS1](#S-IROS1)
+* [Installing Catkin](#S-ICATKIN)
+* [Initializing Catkin workspace](#S-ICATKINWS)
 * [Setup Qt Creator](#S-SETUPQT)
+
+
+
+
+
+
 
 
 
@@ -92,7 +100,7 @@ ROS 2 command line tools use argcomplete to autocompletion. So if you want autoc
     sudo apt install -y python3-pip
     pip3 install -U argcomplete
 
-## Try some examples¶
+## Try some examples
 
 In one terminal, source the setup file and then run a C++ talker:
 
@@ -144,7 +152,7 @@ You will need to run this command on every new shell you open to have access to 
     source /opt/ros/foxy/setup.bash
 
 
-###### 2 Check environment variables¶
+###### 2 Check environment variables
 
 Sourcing ROS 2 setup files will set several environment variables necessary for operating ROS 2. If you ever have problems finding or using your ROS 2 packages, make sure that your environment is properly setup using the following command:
 
@@ -227,7 +235,7 @@ Now the workspace should have the source code to the ROS 2 examples:
 4 directories, 3 files
 
 
-###### 7 Build the workspace¶
+###### 7 Build the workspace
 
 In the root of the workspace, run colcon build. Since build types such as ament_cmake do not support the concept of the devel space and require the package to be installed, colcon supports the option --symlink-install. This allows the installed files to be changed by changing the files in the source space (e.g. Python files or other not compiled resourced) for faster iteration.
 
@@ -309,7 +317,8 @@ You must source this script in every bash terminal you use ROS in.
 
 source /opt/ros/noetic/setup.bash
 
-###### 4 Install Catkin
+# <a name="S-ICATKIN"></a>Installing Catkin 
+
 Once ROS Noetic is installed it is time to install Catkin. This last one has the same function of Colcon, so a quick installation is presented without too many explanations. The following was taken from: https://catkin-tools.readthedocs.io/en/latest/installing.html
 
 First you must have the ROS repositories which contain the .deb for catkin_tools:
@@ -326,7 +335,8 @@ Then there is the need of solving some dependencies first. So run the following:
     sudo apt install python3-catkin-lint python3-pip
     pip3 install osrf-pycommon
 
-###### 5 Initializing the workspace
+
+# <a name="S-ICATKINWS"></a>Initializing Catlin workspace 
 
 The procedure is taken from the website: http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment
 
