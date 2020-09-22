@@ -342,7 +342,7 @@ Then there is the need of solving some dependencies first. So run the following:
     pip3 install osrf-pycommon
 
 
-# <a name="S-ICATKINWS"></a>Initializing Catlin workspace
+# <a name="S-ICATKINWS"></a>Initializing Catkin workspace
 
 The procedure is taken from the website: http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment
 
