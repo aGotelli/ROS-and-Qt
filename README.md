@@ -8,9 +8,11 @@ Editors:
 * Andrea Gotelli
 
 Tutorial for combining ROS with the IDE Qt Creator (in Ubuntu 20.04). This document in mainly a
-copy and paste of tutorials from internet (mostly from Slack and ROS Wiki).
+copy and paste of tutorials from internet (mostly from Slack and ROS Wiki). However, there
+are some small changes from what is written in the online tutorial and what we have to do; mostly
+because some tutorials are out of date.
 
-However the information contained here allow the infamous practice of spending
+The information contained here allow the infamous practice of spending
 hours figuring out the right tutorial to follow. It mostly comes out of experience and not very friendly mistakes. If you have any suggestion please feel free to modify this document and open and issue.
 
 
@@ -263,6 +265,9 @@ When colcon has completed building successfully, the output will be in the insta
 
     . install/setup.bash
 
+This last command is the same as "source devel/setup.bash" but in the colcon workspace there is not
+a devel folder.
+
 ###### 10 Try a demo
 
 With the environment sourced we can run executables built by colcon. Let’s run a subscriber node from the examples:
@@ -368,7 +373,7 @@ Or just follow the steps reported here.
 
 ##### 1 Install the Wizard
 
-To install the wizard click the link:
+To install the wizard by downloading it from here or click the link:
     https://qtcreator-ros.datasys.swri.edu/downloads/installers/bionic/qtcreator-ros-bionic-latest-online-installer.run
 
 Which obviously it is going to be a virus, designed to steal your precious Facebook account.
@@ -379,8 +384,7 @@ Right click on the downloaded file, go to permission and allow to be executed as
 
 ###### 3 Last steps
 
-At this point, it is sufficient to follow the videos for setting up everything. The video
-for setting up the environment for ROS1 are available in the following links:
+At this point, it is sufficient to follow the incoming steps which are a sum up of the videos linked below. The video are for set up the environment for ROS1 but the can be used in our case as well.
 ###### Video 1
     https://qtcreator-ros.datasys.swri.edu/downloads/tutorials/videos/introduction/(Part%202)%20ROS%20QT%20Intro%20-%20Import,%20Build,%20and%20Run%20Settings.mp4
 
@@ -390,9 +394,99 @@ for setting up the environment for ROS1 are available in the following links:
 ###### Video 3
     https://qtcreator-ros.datasys.swri.edu/downloads/tutorials/videos/introduction/(Part%204)%20ROS%20QT%20Intro%20-%20Hello%20World!.mp4
 
-In this case, for the workspace, it is convenient to use the catkin_make command.
-My suggestion is to create a folder in your home called qt_wss (which stands for qt_workspaces)
-Inside this folder create another two called "catkin" and "colcon". Starting with catkin, create the src folder inside and then initialize the workspace with Qt as shown in the video. than close Qt, open the terminal in the root of this catkin workspace and, after have sourced the .bash file in ros/noetic, run a simple catkin_make. At this point the workspace is initialized and you can start using it(refer to the videos for creating a package, however, you can always git clone whatever you want in the src folder) .
 
-At this point the only thing remaining is to setup the colcon workspace. You just follow the
-same step as before but carefully selecting colcon and the right ros distribution.  
+###### Create the workspaces under Qt
+
+In your home (or wherever you want) create a folder called qt_wss (stand for Qt workspaces).
+Inside this folder create two others folder called catkin and colcon, both with and src inside.
+At this point is possible to set up the environment.
+
+###### Setup Catkin workspace
+Inside the newly created catkin folder, first source the correct .bash file.
+
+    source /opt/ros/noetic/setup.bash
+
+At this point run the command catkin build (or catkin init). The advantages in using catkin tool
+instead of catkin_make is that it solves the dependencies among packages automatically and has
+less verbose.
+
+At this point open the app Qt Creator. Click on New Project and then select ROS Workspace.
+  ![ROS-and-Qt](images/home.png)
+
+Check to have selected the Welcome button, then press on "+ New Project"
+
+A window will pop up, selecting the "Other Project" you will found the option ROS Workspace.
+
+  ![ROS-and-Qt](images/projects.png)
+
+Once have selection the ROS workspace, the following window pops up.
+
+  ![ROS-and-Qt](images/creation1.png)
+
+In this window you have to give a name to the project. I suggest to write the info that this is a workspace under Qt and based on Catkin.
+
+There is a panel where to select the ROS version. Here select Noetic. For what concerns the Build System, choose CatkinBuild (as before we used catkin build to initialize the workspace).
+
+The last thing remaining is to Browse the folder "qt_wss/catkin" and click Next. That will open the following window.
+
+  ![ROS-and-Qt](images/creation2.png)
+
+Here you can chose if initialie git (why not?) and then click on finish.
+
+At this point the worst is done, you can click on build now to build the workspace with Qt.
+
+  ![ROS-and-Qt](images/created.png)
+
+You can enable a ROS terminal by clicking on the double triangles on the bottom left and selecting the related checkbox.
+
+###### Setup Colcon workspace
+
+This part follows the same procedure as for Catkin.
+
+Inside the folder colcon (the one in qt_wss), first source the correct .bash file
+
+    source /opt/ros/foxy/setup.bash
+
+Then build the workspace running colcon build.
+
+Opening Qt Creator, follow the same step as before but:
+* Choose a reasonable project name (like qt_colcon_ws)
+* Select the qt_wss/colcon folder
+* Select foxy as ROS version
+* Select Colcon as Build System
+
+If everything goes right Qt will be able to build the workspace without problems.
+
+
+######    Creating a package from Qt Creator
+
+It is possible to create packages and nodes directly from Qt creator. However, this is possible only for ROS1 projects.
+
+To do so, go to file, in the right upper corner, and "new file or project".
+
+  ![ROS-and-Qt](images/new1.png)
+
+Selecting ROS in "Files and Classes" you are able to create a package, by selecting "Package". Clicking on next you will be prompted to a GUI which ask the same info as the command "catkin_create_package"
+
+  ![ROS-and-Qt](images/new2.png)
+
+Clicking on "Next" the package is created in the selected workspace.
+
+If you want to create a node there is already templates.
+
+  ![ROS-and-Qt](images/node1.png)
+
+Selecting on the template you want you just have to give a name to your executable.
+
+  ![ROS-and-Qt](images/node2.png)
+
+
+
+
+The procedure is not applicable in the colcon workspace. The reason is that the Qt plugin is for ROS1 not ROS2. As a result, for ROS2 you need to use the old fashion terminal.
+
+The useful command are:
+
+    source /opt/ros/foxy/setup.bash
+
+    ros2 pkg create pkg_name
