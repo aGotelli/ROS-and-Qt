@@ -8,11 +8,11 @@ Editors:
 * Andrea Gotelli
 
 Tutorial for combining ROS with the IDE Qt Creator (in Ubuntu 20.04). This document in mainly a
-copy and paste of tutorials from internet (mostly from Slack and ROS Wiki). However, there
+copy and paste of tutorials from internet and solved problems (mostly from Slack and ROS Wiki). However, there
 are some small changes from what is written in the online tutorial and what we have to do; mostly
 because some tutorials are out of date.
 
-The information contained here allow the infamous practice of spending
+The information contained here alleviate (or even avoid) the infamous practice of spending
 hours figuring out the right tutorial to follow. It mostly comes out of experience and not very friendly mistakes. If you have any suggestion please feel free to modify this document and open and issue.
 
 
