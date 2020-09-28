@@ -490,3 +490,18 @@ The useful command are:
     source /opt/ros/foxy/setup.bash
 
     ros2 pkg create pkg_name
+
+
+######  Define the ROS run command(s)
+
+The last thing it remains to do is to set up the run configuration. In the left part of the application, select the wrench where is written "Project" and you will be prompted in the following page.
+
+  ![ROS-and-Qt](images/run_setting1.png)
+
+Select the run configurations and then change the "Run configuration" from "Custom Executable" to "ROS Run Configuration"
+
+  ![ROS-and-Qt](images/run_setting2.png)
+
+Now it is possible to set up one (or more) run command(s) as well as launch command, by adding the desired step.
+
+  ![ROS-and-Qt](images/run_setting3.png)
