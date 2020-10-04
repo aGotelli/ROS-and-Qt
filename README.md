@@ -397,8 +397,11 @@ At this point, it is sufficient to follow the incoming steps which are a sum up 
 
 ###### Create the workspaces under Qt
 
-In your home (or wherever you want) create a folder called qt_wss (stand for Qt workspaces).
-Inside this folder create two others folder called catkin and colcon, both with and src inside.
+If you have followed the wizard now in your home there should be a folder named "QtCreator". Browse this folder until reaching the contents of the folder latest. The path should be the following:
+
+    ~/QtCreator/latest$
+
+Inside this folder create two others folders called catkin and colcon, both with and src inside.
 At this point is possible to set up the environment.
 
 ###### Setup Catkin workspace
@@ -427,7 +430,8 @@ In this window you have to give a name to the project. I suggest to write the in
 
 There is a panel where to select the ROS version. Here select Noetic. For what concerns the Build System, choose CatkinBuild (as before we used catkin build to initialize the workspace).
 
-The last thing remaining is to Browse the folder "qt_wss/catkin" and click Next. That will open the following window.
+The last thing remaining is to Browse the folder "~/QtCreator/latest/catkin" and click Next. (the image may refer to another path, which was in a previus version of the tutorial)
+That will open the following window.
 
   ![ROS-and-Qt](images/creation2.png)
 
@@ -443,7 +447,7 @@ You can enable a ROS terminal by clicking on the double triangles on the bottom 
 
 This part follows the same procedure as for Catkin.
 
-Inside the folder colcon (the one in qt_wss), first source the correct .bash file
+Inside the folder colcon (the one in ~/QtCreator/latest), first source the correct .bash file
 
     source /opt/ros/foxy/setup.bash
 
@@ -505,3 +509,32 @@ Select the run configurations and then change the "Run configuration" from "Cust
 Now it is possible to set up one (or more) run command(s) as well as launch command, by adding the desired step.
 
   ![ROS-and-Qt](images/run_setting3.png)
+
+
+###### Set up the ROS terminal
+
+In this step it is presented the procedure to st up the terminal in Qt. In the bottom part of the application there are some panels like:
+1 Issues, 2 Search Results, 3...
+
+To add the terminal, click on the symbol on the right of the ninth element: 9 Test Results (Or the top right element). The symbol opens a selection where the ROS terminal is, click on the checkbox and the terminal will appear.
+
+
+###### Build and Run
+
+Now that everything is set up, the build command can be used to check the code in your workspace. For the catkin workspace you can create run steps and/or use the terminal, while for the colcon workspace you can only use the terminal.
+
+For using the terminal, click on it and then on the paper symbol where is written "Add new terminal". For each terminal you open you must source the correct environment, as the .bashr file was not modified. However, this is a simple task thanks to the architecture of the environment.
+
+When you open the terminal, it opens in
+
+    ~/QtCreator/latest$
+
+So to source the correct environment it is just the following.
+
+To source catkin:
+
+    source catkin/devel/setup.bash
+
+To source colcon
+
+    . colcon/install/setup.bash
