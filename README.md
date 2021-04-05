@@ -371,7 +371,7 @@ Now the only thing remaining is to set up Qt. For that, download and follow the 
 
 Or just follow the steps reported here.
 
-##### 1 Install the Wizard
+###### 1 Install the Wizard
 
 To install the wizard by downloading it from here or click the link:
     https://qtcreator-ros.datasys.swri.edu/downloads/installers/bionic/qtcreator-ros-bionic-latest-online-installer.run
@@ -538,3 +538,54 @@ To source catkin:
 To source colcon
 
     . colcon/install/setup.bash
+
+###### Debug
+
+If you want to use the QtCreator IDE you may also be interested in the debug facilities it provides. Luckly, it is super easy to set it up.
+First, in order to display the procedure, let's use a simple example. Here we use a simple package called "little_package". little_package has only one node called "node_to_test". In order to set up everything let's open the package with the QtCreator plugin.
+So open QtCreator and the package in the workspace. In this case, this is what we see.
+
+![ROS-and-Qt](images/little_pkg_disp.png)
+
+First, I will show the basic CmakeLists for this package.
+
+![ROS-and-Qt](images/little_pkg_cmake.png)
+
+As you can see, there is nothing much complicated. I just wrote down the basic command for creating an executable, However, you must ass the command
+
+    set(CMAKE_BUILD_TYPE Debug)
+
+If you want to use the debugger. Don't worry, you can change it to Release once done with your debug process.
+
+Now the only thing we have to do is actually enable the debugger. For this we first need to go back to the Project section, as shown in the image below.
+
+![ROS-and-Qt](images/debug_setting1.png)
+
+So select the Project panel and then the run subsection. You will be prompt in the list of all your rosrun executable.
+This time, select the option:
+
+    Run Configuration: Costum Executable
+
+At this point you need to provide the executable you want to run. In this case example, I want to run the node_to_test. This executable is located in devel/lib/little_package (as I used catkin_tools). In order to select it, you have to click on the Browse.. button on the left.
+You will be prompt to a window where you have to select the executable as explained before. Here there is an image of what I did in my case:
+
+![ROS-and-Qt](images/debug_setting2.png)
+
+Pay attention! The name you will find in this folder depends on how you have called the executable you have declared in the CmakeLists! So be
+careful with the naming convention you have chosen. In this example I followed the convention of using the packge name. If you declare the executable like:
+
+    add_executable(node_to_test src/node_to_test.cpp)
+
+Then the executable you will find under devel/lib/little_package will be named: node_to_test.
+
+However, once selected the correct executable, you may rename it with a meaningful name. Just click on the rename button and rename it
+
+![ROS-and-Qt](images/debug_setting3.png)
+
+When you go back to the editor, you will now find your newly defined executable, as shown in the image below.
+
+![ROS-and-Qt](images/debug_setting4.png)
+
+At this point, all the work is done! Place your breakpoint wherever you want and enjoy your debugger.
+
+![ROS-and-Qt](images/debug_setting5.png)
