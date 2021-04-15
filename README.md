@@ -521,7 +521,18 @@ To add the terminal, click on the symbol on the right of the ninth element: 9 Te
 
 ###### Build and Run
 
-Now that everything is set up, the build command can be used to check the code in your workspace. For the catkin workspace you can create run steps and/or use the terminal, while for the colcon workspace you can only use the terminal.
+Now that everything is set up, the build command can be used to check the code in your workspace.
+
+If in your workspace there are many packages(which is not a good thing, move stable and finished packages in another workspace), you may want to build only what your are using. However, by default, Qt will build the whole workspace. If you want to select one or more packages, follow this procedure.
+Open your workspace, go to Project and Build.
+
+  ![ROS-and-Qt](images/target_build1.png)
+
+Once there, open the table details on the Build Step: CatkinTools Step. And write in the CatkinTools Arguments the packages you want to build, as you do in the terminal. Here in the example, I only want to build the little_package (an example package that will come in handy later).
+
+  ![ROS-and-Qt](images/target_build2.png)
+
+For the catkin workspace you can create run steps and/or use the terminal, while for the colcon workspace you can only use the terminal.
 
 For using the terminal, click on it and then on the paper symbol where is written "Add new terminal". For each terminal you open you must source the correct environment, as the .bashr file was not modified. However, this is a simple task thanks to the architecture of the environment.
 
@@ -541,7 +552,7 @@ To source colcon
 
 ###### Debug
 
-If you want to use the QtCreator IDE you may also be interested in the debug facilities it provides. Luckly, it is super easy to set it up.
+If you want to use the QtCreator IDE you may also be interested in the debug facilities it provides. Luckily, it is super easy to set it up.
 First, in order to display the procedure, let's use a simple example. Here we use a simple package called "little_package". little_package has only one node called "node_to_test". In order to set up everything let's open the package with the QtCreator plugin.
 So open QtCreator and the package in the workspace. In this case, this is what we see.
 
